@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Rock, Paper, Sissors!</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <script>
+            // JavaScript goes here.
+
+            playerSelection = prompt("Choose Rock, Paper, or Scissors...");
+            playerSelection = playerSelection.toLowerCase();
+
+            computerPlay = Math.random();
+
+            if(computerPlay <= .33 ) {
+                computerPlay = "rock"
+                console.log(computerPlay);
+            }
+
+            else if(computerPlay > .33 && computerPlay < .67 ) {
+                computerPlay = "paper"
+                console.log(computerPlay);
+            }
+
+            else {
+                computerPlay = "scissors"
+                console.log(computerPlay);
+            }
+
+            var compare = function(choice1, choice2) {
+                
+                if(choice1 === choice2) {
+                    console.log ("The reusult is a tie!");
+                }
+
+                    else if (choice1 === "rock") {
+
+                        if(choice2 === "scissors") {
+                            console.log ("rock wins");
+                    }
+
+                        else {
+                            console.log ("paper wins");
+                    }
+                }
+
+                else if (choice2 === "rock"){
+
+                    if (choice2 === "rock"){
+                        console.log ("paper wins");
+                    }
+                    else {
+                        console.log ("scissors win");
+                    }
+                }
+            }
+
+            compare(playerSelection, computerPlay);
+
+
+        </script>
+    </body>
+</html>
