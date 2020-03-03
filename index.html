@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
     <head>
         <title>Rock, Paper, Scissors!</title>
@@ -7,87 +6,113 @@
     </head>
     <body>
         <script>
-        //GAME
+            /// JAVASCRIPT HERE
 
-        function game() {
-            const games = 5;            /// total games
-            let playerPoints = 0;       /// starting points
-            let computerPoints = 0;     /// starting points
+            // play game
 
-            for(let i = 0; i < games; i++) {
-                //get player answer and store in a variable
-                let playerSelection = prompt("Choose Your Throw -- Rock, Paper, or Scissors?").toLowerCase();
+            function game() {
+                // starting points 
 
-                //generate computer answer
-                function computerThrow() {
-                    return (["paper","scissors","rock"])[Math.random() * 3 | 0];
+                let playerPoints = 0;
+                let computerPoints = 0;
+
+                // make game have as many rounds needed till someone gets 5 points
+
+                for(let i = 0; ; i++) {
+
+                    // get player answer and store it in a variable
+
+                    let playerSelection = prompt("Choose Your Throw! Rock, Paper, or Scissors?").toLowerCase();
+
+                    // generate computer aswer
+
+                    function computerPlay () {
+                        return (["rock", "paper", "scissors"])[Math.random() * 3 | 0];
+                    }
+
+                    let computerSelection = computerPlay();
+
+                    let round = playRound(playerSelection, computerSelection);
+
+                    if(round === "wins") {
+                        alert('ROUND WIN!');
+                        playerPoints++;
+                        console.log("YOU WIN!");
+                        
+                        if(playerPoints === 5) break;
+                    }
+
+                    else if(round === "lose") {
+                        alert('ROUND LOST!');
+                        computerPoints++;
+                        console.log("YOU LOOSE!");
+
+                        if(computerPoints === 5) break;
+                    }
+
+                   else {
+                       alert('ROUND TIED!');
+                       console.log("IT'S A TIE!");
+                   }
                 }
 
-                let computerSelection = computerThrow();
+                // point system
 
-                let round = playRound(playerSelection, computerSelection);
+                if(playerPoints > computerPoints) {
+                    alert("CONGRATS! You beat the computer " + playerPoints + " to " + computerPoints + "!")
+                    console.log("CONGRATS! You beat the computer " + playerPoints + " to " + computerPoints + "!");
+                }
 
-                if(round === "wins") {
-                    playerPoints++;
-                    console.log("YOU WIN!")
-                }
-                else if(round === "loses") {
-                    computerPoints++;
-                    console.log("You Lose!");
-                }
-                else if(round === "ties") {
-                    console.log("You Tied!");
-                }
-            }
-
-            if(playerPoints > computerPoints) {
-                console.log("COGRATS! You beat the computer " + playerPoints + " to " + computerPoints + "!");
-            }
-            else if (playerPoints === computerPoints) {
-                console.log("Tough Luck! You tied with the computer " + playerPoints + " to " + computerPoints + ".");
-            }
-            else {
-                console.log("Sorry! You lost to the computer " + computerPoints + " to " + playerPoints + ".");
-            }
-        }   ////// END GAME
-
-        function playRound(playerSelection, computerSelection) {
-            if (playerSelection == 'rock') {
-                if (computerSelection == 'scissors') {
-                    return 'wins';
-                }
-                else if (computerSelection == 'paper') {
-                    return 'loses';
-                }
                 else {
-                    return 'ties';
+                    alert("Try again! You lost to the computer " + computerPoints + " to " + playerPoints + ".")
+                    console.log("Try again! You lost to the computer " + computerPoints + " to " + playerPoints + ".");
+                }
+            } // END GAME
+
+            function playRound(playerSelection, computerSelection) {
+                if (playerSelection == "rock") {
+                    if (computerSelection == "scissors") {
+                        return 'wins';
+                    }
+
+                    else if (computerSelection == "paper") {
+                        return 'lose';
+                    }
+
+                    else {
+                        return 'ties';
+                    }
+                }
+
+                if (playerSelection == "paper") {
+                    if (computerSelection == "scissors") {
+                        return 'wins';
+                    }
+
+                    else if(computerSelection == "rock") {
+                        return 'lose';
+                    }
+
+                    else {
+                        return 'ties';
+                    }
+                }
+
+                if (playerSelection == "scissors") {
+                    if (computerSelection == "paper") {
+                        return 'wins';
+                    }
+
+                    else if (computerSelection == "rock") {
+                        return 'lose';
+                    }
+
+                    else {
+                        return 'ties';
+                    }
                 }
             }
 
-            if (playerSelection == 'paper') {
-                if (computerSelection == 'rock') {
-                    return 'wins';
-                }
-                else if (computerSelection == 'scissors') {
-                    return 'loses';
-                }
-                else {
-                    return 'ties';
-                }
-            }
-
-            if (playerSelection == 'scissors') {
-                if (computerSelection == 'paper') {
-                    return 'wins';
-                }
-                else if(computerSelection == 'rock') {
-                    return 'loses';
-                }
-                else {
-                    return 'ties';
-                }
-            }
-        }
         </script>
     </body>
 </html>
