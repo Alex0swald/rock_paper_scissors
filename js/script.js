@@ -1,3 +1,16 @@
+// title
+const title = document.getElementById('title');
+
+// main picks
+const rock = document.getElementById('rock');
+const paper = document.getElementById('paper');
+const scissors = document.getElementById('scissors');
+
+// Throws
+
+const playerPick = [...document.querySelectorAll('.mb_playermove')];
+const compPick = [...document.querySelectorAll('.mb_compmove')];
+
 // game automation variables
 
 const choice = ['rock', 'paper', 'scissors']
