@@ -5,114 +5,57 @@
         <meta charset="UTF-8"/>
     </head>
     <body>
-        <script>
-            /// JAVASCRIPT HERE
+        <h2 class="main_title" id="title">Choose Your Thorw!</h2>
 
-            // play game
+        <div class="main_replay">
+            <button class="main_replay-button" id="replay-button">Replay</button>
+        </div>
 
-            function game() {
-                // starting points 
+        <div class="main_container">
+            <div class="main_pick" id="rockBtn">
+                <button id="rock" value="rock">ROCK!</button>
+            </div>
 
-                let playerPoints = 0;
-                let computerPoints = 0;
+            <div class="main_pick" id="paperBtn">
+                <button id="paper" value="paper">PAPER!</button>
+            </div>
 
-                // make game have as many rounds needed till someone gets 5 points
+            <div class="main_pick" id="scissorsBtn">
+                <button id="scissors" value="scissors">SCISSORS!</button>
+            </div>
+        </div>
 
-                for(let i = 0; ; i++) {
+        <div class="main_battle">
+            <h3 class="mb_h3Player">Your Pick:</h3>
+            <h3 class="bm_h3Comp">Computer's Pick</h3>
+            <div class="mb_moves">
+                <img src="" alt="rock" class="mb_playermove">
+                <img src="" alt="paper" class="mb_playermove">
+                <img src="" alt="scissors" class="mb_playermove">
+            </div>
+            <div class="mb_moves" id="comp_moves">
+                <img src="" alt="rock" class="mb_playermove">
+                <img src="" alt="paper" class="mb_playermove">
+                <img src="" alt="scissors" class="mb_playermove">
+            </div>
+            <div class="main_score mb_player_score">
+                <div class="ms_item player_score"></div>
+                <div class="ms_item player_score"></div>
+                <div class="ms_item player_score"></div>
+                <div class="ms_item player_score"></div>
+                <div class="ms_item player_score"></div>
+            </div>
+            <div class="main_score mb_computer_score">
+                <div class="ms_item computer_score"></div>
+                <div class="ms_item computer_score"></div>
+                <div class="ms_item computer_score"></div>
+                <div class="ms_item computer_score"></div>
+                <div class="ms_item computer_score"></div>
+            </div>
+        </div>
 
-                    // get player answer and store it in a variable
 
-                    let playerSelection = prompt("Choose Your Throw! Rock, Paper, or Scissors?").toLowerCase();
+        <script type="text/javascript" src="js/script.js"></script>
 
-                    // generate computer aswer
-
-                    function computerPlay () {
-                        return (["rock", "paper", "scissors"])[Math.random() * 3 | 0];
-                    }
-
-                    let computerSelection = computerPlay();
-
-                    let round = playRound(playerSelection, computerSelection);
-
-                    if(round === "wins") {
-                        alert('ROUND WIN!');
-                        playerPoints++;
-                        console.log("YOU WIN!");
-                        
-                        if(playerPoints === 5) break;
-                    }
-
-                    else if(round === "lose") {
-                        alert('ROUND LOST!');
-                        computerPoints++;
-                        console.log("YOU LOOSE!");
-
-                        if(computerPoints === 5) break;
-                    }
-
-                   else {
-                       alert('ROUND TIED!');
-                       console.log("IT'S A TIE!");
-                   }
-                }
-
-                // point system
-
-                if(playerPoints > computerPoints) {
-                    alert("CONGRATS! You beat the computer " + playerPoints + " to " + computerPoints + "!")
-                    console.log("CONGRATS! You beat the computer " + playerPoints + " to " + computerPoints + "!");
-                }
-
-                else {
-                    alert("Try again! You lost to the computer " + computerPoints + " to " + playerPoints + ".")
-                    console.log("Try again! You lost to the computer " + computerPoints + " to " + playerPoints + ".");
-                }
-            } // END GAME
-
-            function playRound(playerSelection, computerSelection) {
-                if (playerSelection == "rock") {
-                    if (computerSelection == "scissors") {
-                        return 'wins';
-                    }
-
-                    else if (computerSelection == "paper") {
-                        return 'lose';
-                    }
-
-                    else {
-                        return 'ties';
-                    }
-                }
-
-                if (playerSelection == "paper") {
-                    if (computerSelection == "scissors") {
-                        return 'wins';
-                    }
-
-                    else if(computerSelection == "rock") {
-                        return 'lose';
-                    }
-
-                    else {
-                        return 'ties';
-                    }
-                }
-
-                if (playerSelection == "scissors") {
-                    if (computerSelection == "paper") {
-                        return 'wins';
-                    }
-
-                    else if (computerSelection == "rock") {
-                        return 'lose';
-                    }
-
-                    else {
-                        return 'ties';
-                    }
-                }
-            }
-
-        </script>
     </body>
 </html>

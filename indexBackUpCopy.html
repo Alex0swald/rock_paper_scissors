@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock, Paper, Scissors!</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <script>
+            /// JAVASCRIPT HERE
+
+            // play game
+
+            function game() {
+                // starting points 
+
+                let playerPoints = 0;
+                let computerPoints = 0;
+
+                // make game have as many rounds needed till someone gets 5 points
+
+                for(let i = 0; ; i++) {
+
+                    // get player answer and store it in a variable
+
+                    let playerSelection = prompt("Choose Your Throw! Rock, Paper, or Scissors?").toLowerCase();
+
+                    // generate computer aswer
+
+                    
+
+                // point system
+
+                if(playerPoints > computerPoints) {
+                    alert("CONGRATS! You beat the computer " + playerPoints + " to " + computerPoints + "!")
+                    console.log("CONGRATS! You beat the computer " + playerPoints + " to " + computerPoints + "!");
+                }
+
+                else {
+                    alert("Try again! You lost to the computer " + computerPoints + " to " + playerPoints + ".")
+                    console.log("Try again! You lost to the computer " + computerPoints + " to " + playerPoints + ".");
+                }
+            } // END GAME
+
+            function playRound(playerSelection, computerSelection) {
+                if (playerSelection == "rock") {
+                    if (computerSelection == "scissors") {
+                        return 'wins';
+                    }
+
+                    else if (computerSelection == "paper") {
+                        return 'lose';
+                    }
+
+                    else {
+                        return 'ties';
+                    }
+                }
+
+                if (playerSelection == "paper") {
+                    if (computerSelection == "scissors") {
+                        return 'wins';
+                    }
+
+                    else if(computerSelection == "rock") {
+                        return 'lose';
+                    }
+
+                    else {
+                        return 'ties';
+                    }
+                }
+
+                if (playerSelection == "scissors") {
+                    if (computerSelection == "paper") {
+                        return 'wins';
+                    }
+
+                    else if (computerSelection == "rock") {
+                        return 'lose';
+                    }
+
+                    else {
+                        return 'ties';
+                    }
+                }
+            }
+
+        </script>
+    </body>
+</html>
