@@ -3,57 +3,66 @@
     <head>
         <title>Rock, Paper, Scissors!</title>
         <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="style/style.css" type="text/css">
     </head>
     <body>
-        <h2 class="main_title" id="title">Choose Your Thorw!</h2>
 
-        <div class="main_replay">
-            <button class="main_replay-button" id="replay-button">Replay</button>
-        </div>
-
-        <div class="main_container">
-            <div class="main_pick" id="rockBtn">
-                <button id="rock" value="rock">ROCK!</button>
-            </div>
-
-            <div class="main_pick" id="paperBtn">
-                <button id="paper" value="paper">PAPER!</button>
-            </div>
-
-            <div class="main_pick" id="scissorsBtn">
-                <button id="scissors" value="scissors">SCISSORS!</button>
+        <div id="warning_container" class="hidden">
+            <div id="warning_box">
+                <div id="warning_content">
+                    <p class="warning_text">
+                        <span>Plase Start The Game</span>
+                    </p>
+                    <div id="warning-close">
+                        <p>X</p>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="main_battle">
-            <h3 class="mb_h3Player">Your Pick:</h3>
-            <h3 class="bm_h3Comp">Computer's Pick</h3>
-            <div class="mb_moves">
-                <img src="" alt="rock" class="mb_playermove">
-                <img src="" alt="paper" class="mb_playermove">
-                <img src="" alt="scissors" class="mb_playermove">
-            </div>
-            <div class="mb_moves" id="comp_moves">
-                <img src="" alt="rock" class="mb_compmove">
-                <img src="" alt="paper" class="mb_compmove">
-                <img src="" alt="scissors" class="mb_compmove">
-            </div>
-            <div class="main_score mb_player_score">
-                <div class="ms_item player_score"></div>
-                <div class="ms_item player_score"></div>
-                <div class="ms_item player_score"></div>
-                <div class="ms_item player_score"></div>
-                <div class="ms_item player_score"></div>
-            </div>
-            <div class="main_score mb_computer_score">
-                <div class="ms_item computer_score"></div>
-                <div class="ms_item computer_score"></div>
-                <div class="ms_item computer_score"></div>
-                <div class="ms_item computer_score"></div>
-                <div class="ms_item computer_score"></div>
+        <header>
+            <h1>
+                <span class="header_color_1">Rock!</span>
+                <span class="header_color_2">Paper!</span>
+                <span class="header_color_3">Scissors!</span>
+            </h1>
+            <p>The first to 5 wins!</p>
+            <input type="button" value="Start Game!" id="button">
+        </header>
+
+        <div id="result" class>
+            <p>YOU WIN!</p>
+        </div>
+
+        <div class="score_container">
+            <p class="num_of_games">
+                GAME: 
+                <span id="gameNum">0</span>
+            </p>
+        </div>
+
+        <div class="choice_container">
+            <div class="choice" id="rock">
+                <img src="photos/rock.png" class="hand_rock" value="rock">
+                <p>Rock</p>
             </div>
         </div>
 
+        <div class="choice_container">
+            <div class="choice" id="paper">
+                <img src="photos/paper.png" class="hand_paper" value="paper">
+                <p>Paper</p>
+            </div>
+        </div>
+
+        <div class="choice_container">
+            <div class="choice" id="scissors">
+                <img src="photos/scissors.png" class="hand_scissors" value="scissors">
+                <p>Scissors</p>
+            </div>
+        </div>
+
+        <div id="info_box" class="hidden"></div>
 
         <script type="text/javascript" src="js/script.js"></script>
 
