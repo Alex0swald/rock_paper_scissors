@@ -28,7 +28,7 @@ function powerOn() {
     else {
         console.log('else');
     }
-    console.log('done');
+    
 }
 
 function startGame() {
