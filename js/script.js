@@ -1,95 +1,184 @@
-// title
-const title = document.getElementById('title');
+const infoBox = document.querySelector('#info_box');
+const resultsBox = document.querySelector('#result');
+const button = document.querySelector('#start_btn');
 
-// main picks
-const rock = document.getElementById('rock');
-const paper = document.getElementById('paper');
-const scissors = document.getElementById('scissors');
 
-// Throws
+let gameString = document.querySelector('#gameNum');
+gameString.innerHTML = 0;
 
-const playerPick = [...document.querySelectorAll('.mb_playermove')];
-const compPick = [...document.querySelectorAll('.mb_compmove')];
+let game = -2;
+let playerScore = 0;
+let computerScore = 0;
+let totalWins = 0;
 
-// game automation variables
+let playerScoreBoard = document.querySelector('#pScore');
+let computerScoreBoard = document.querySelector('#cScore');
 
-const choice = ['rock', 'paper', 'scissors']
-var score = [0,0]
-var round = [0]
+function powerOn() {
+    infoBox.innerHTML = "";
 
-function Game(e) {
-    console.log(round)
-
-    if(score[0] === 0 && score [0] === 0 && round[0] === 0)
-    console.log('Score 5 Points To Win!');
-
-    function playRound(playerSelection, computerSelection) {
-        let i = choice.indexOf(playerSelection)
-        let j = choice.indexOf(computerSelection)
-        let winningCombos = [[0,1], [1,2], [2,0]]
-        let losingCombos = [[1,0], [0,1], [0,2]]
-
-        if(i === j) {
-            round[0] += 1
-            return 'draw';
-        }
-
-        for (var idz = 0; idz < winningCombos.length; idz++) {
-            let win = winningCombos[idz]
-            if(win[0] === i && win[1] === j) {
-                score[0] += 1
-                round[0] += 1
-                return 'win';
-            }
-        }
-
-        for (var idz = 0; idz < losingCombos.length; idz++) {
-            let lose = losingCombos[idz]
-            if(lose[0] === i && lose[1] === j) {
-                score[1] += 1
-                round[0] += 1
-                return 'lose';
-            }
-        }
+    if (document.getElementById("start_btn").style.visibility = "hidden") {
+    setTimeout(function() {
+        document.getElementById("start_btn").style.visibility = "visible";
+    }, 2500);
     }
-
-    const playerSelection = e.target.value
-    const computerSelection = choice[Math.floor(Math.random() * 3)];
-
-    let result = playRound(playerSelection, computerSelection)
-
-    if (result === 'win') {
-        console.log('YOU WIN');
+    else if(document.getElementById("start_btn").style.visibility = "visible") {
+        document.getElementById("start_btn").style.visibility = "hidden";
     }
-
-    else if (result === 'lose') {
-        console.log('YOU LOSE');
-    }
-
     else {
-        console.log('IT\'S A TIE');
+        console.log('else');
     }
+    console.log('done');
+}
 
+function startGame() {
+    game = 0;
+    playerScore = 0;
+    computerScore = 0;
+    gameString.innerHTML = 1;
+    computerScoreBoard.classList.remove('hidden');
+    playerScoreBoard.classList.remove('hidden');
+    playerScoreBoard.innerHTML = playerScore;
+    computerScoreBoard.innerHTML = computerScore;
+    button.value = 'Reset Game';
+    infoBox.innerHTML = "";
 
-    if (score.includes(5)) {
-        if(score[0] > score[1]) {
-            console.log('YOU WIN EVERYTHING');
-        }
+    let warningText = document.querySelector('#warning_container span');
+    warningText.textContent = '';
+}
 
-        else {
-            console.log('YOU LOSE EVERYTHING');
-        }
+document.querySelector('#btn_paper').addEventListener('click', function(){
+    (game < 0) ? startGameMessage() : setChoices('paper');
+});
 
-        score = [0,0];
-        round = [0];
+document.querySelector('#btn_rock').addEventListener('click', function() {
+    (game < 0) ? startGameMessage() : setChoices('rock');
+});
+
+document.querySelector('#btn_scissors').addEventListener('click', function(){
+    (game < 0) ? startGameMessage() : setChoices('scissors');
+});
+
+function startGameMessage(){
+    let warningBox = document.querySelector('#warning_container');
+    let closeButton = document.querySelector('#warning_close')
+    let warningText = document.querySelector('#warning_container span');
+    if(game === -2) {
+        // warningText.textContent = 'Please Start The Game!';
+        warningBoxPopUp(warningBox, closeButton);
+    } else {
+        warningBoxPopUp(warningBox, closeButton);
     }
 }
 
-const buttons = document.querySelectorAll('button');
-console.log(buttons);
+function warningBoxPopUp(warningBox, closeButton) {
+    warningBox.classList.remove('hidden');
+        closeButton.addEventListener('click', function(){
+            warningBox.classList.add('hidden');
+        })
+}
 
-buttons.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-        Game(e);
-    })
-})
+function computerChoice() {
+    let number = Math.floor(Math.random() * 3);
+    switch (number) {
+        case 0:
+            return 'paper';
+            break;
+        case 1:
+            return 'rock';
+            break;
+        case 2:
+            return 'scissors';
+            break;
+    }
+};
+
+function setChoices(choice) {
+    let playerChoice = choice;
+    round(playerChoice, computerChoice());
+};
+
+function round(playerChoice, computerChoice){
+    resultsBox.innerHTML = '';
+
+    if(playerChoice === computerChoice) {     
+        infoBox.classList.remove('hidden');
+        infoBox.innerHTML = playerChoice + ' VS ' + computerChoice;
+        game++;
+    } else {
+        if(playerChoice === 'rock'){
+            switch (computerChoice) {
+                case 'paper':
+                    addWin('computer', playerChoice, computerChoice);
+                    break;
+                default:
+                    addWin('player', playerChoice, computerChoice);                
+            }
+        } else if(playerChoice === 'paper', playerChoice, computerChoice) {
+            switch (computerChoice) {
+                case 'scissors':
+                    addWin('computer', playerChoice, computerChoice);
+                    break;
+                default:
+                    addWin('player', playerChoice, computerChoice);               
+            }
+        } else {
+            switch (computerChoice) {
+                case 'rock':
+                    addWin('computer', playerChoice, computerChoice);
+                    break;
+                default:
+                    addWin('player', playerChoice, computerChoice); 
+            }
+        }
+    }
+    evaluateGame();
+};
+
+function setPlayerScores(){
+    playerScoreBoard.innerHTML = playerScore;
+    computerScoreBoard.innerHTML = computerScore;
+}
+
+function addWin(winner, playerChoice, computerChoice) {
+    if (winner === 'player') {
+        infoBox.classList.remove('hidden');
+        infoBox.innerHTML = playerChoice + ' VS ' + computerChoice;
+        playerScore++;
+        game++;    
+    } else {
+        infoBox.classList.remove('hidden');
+        infoBox.innerHTML = playerChoice + ' VS ' + computerChoice;;
+        computerScore++;
+        game++; 
+    }
+    setPlayerScores();
+}
+
+function endGame(){
+    button.value = 'Start Game';
+    game = 0;
+    if (playerScore > computerScore) {
+        resultsBox.classList.remove('hidden');
+        resultsBox.innerHTML = '<p>you win!</p>';
+        totalWins ++;
+    } else {
+        resultsBox.classList.remove('hidden');
+        resultsBox.innerHTML = '<p>you lose!</p>';
+    }
+
+    playerScore = 0;
+    computerScore = 0;
+    console.log(totalWins);
+    
+}
+
+function evaluateGame(){
+    if(playerScore === 5 || computerScore === 5){
+        endGame()
+    }
+
+    if(game > 0){
+        gameString.innerHTML = game;
+    }
+}

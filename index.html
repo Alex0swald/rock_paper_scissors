@@ -7,64 +7,124 @@
     </head>
     <body>
 
-        <div id="warning_container" class="hidden">
-            <div id="warning_box">
-                <div id="warning_content">
-                    <p class="warning_text">
-                        <span>Plase Start The Game</span>
-                    </p>
-                    <div id="warning-close">
-                        <p>X</p>
-                    </div>
-                </div>
+        <div id="explination_text">
+            <h1>Rock | Paper | Scissors </h1>
+            <h2>Click <i>`POWER`</i>, then select <i>`START`</i> to begin.</h2>
+        </div>
+
+        <div id="colored_component">
+
+            <div id="screen_border">
+          
+              <div id="screen"></div>
+              <div id="gameboy_color"> <span style="font-family:arial black">GAMEBOY</span> <span style="font-family:comic sans ms"> <span style="color:pink">C</span><span style="color:
+              violet">O</span><span style="color:yellow">L</span><span style="color:orange">O</span><span style="color:blue">R</span></div>
+          
+              <div id="power_text">POWER</div>
+          
+              <div class="power-moon"></div>
+              <div class="power-moon"></div>
+              <div class="power-moon"></div>
             </div>
-        </div>
-
-        <header>
-            <h1>
-                <span class="header_color_1">Rock!</span>
-                <span class="header_color_2">Paper!</span>
-                <span class="header_color_3">Scissors!</span>
-            </h1>
-            <p>The first to 5 wins!</p>
-            <input type="button" value="Start Game!" id="button">
-        </header>
-
-        <div id="result" class>
-            <p>YOU WIN!</p>
-        </div>
-
-        <div class="score_container">
-            <p class="num_of_games">
-                GAME: 
-                <span id="gameNum">0</span>
-            </p>
-        </div>
-
-        <div class="choice_container">
-            <div class="choice" id="rock">
-                <img src="photos/rock.png" class="hand_rock" value="rock">
-                <p>Rock</p>
+          
+          
+            <div id="cross_button">
+          
+              <div id="vertical">
+                <div id="up"></div>
+                <div id="down"></div>
+              </div>
+              <div id="horizontal">
+                <div id="middle_round"></div>
+                <div id="left"></div>
+                <div id="right"></div>
+              </div>
             </div>
-        </div>
-
-        <div class="choice_container">
-            <div class="choice" id="paper">
-                <img src="photos/paper.png" class="hand_paper" value="paper">
-                <p>Paper</p>
+          
+            <div id="A_button">
+              <button type="button" id="btn_rock" class="rps_btn">R</button>
             </div>
-        </div>
-
-        <div class="choice_container">
-            <div class="choice" id="scissors">
-                <img src="photos/scissors.png" class="hand_scissors" value="scissors">
-                <p>Scissors</p>
+            <div id="B_button">
+                <button type="button" id="btn_paper" class="rps_btn">P</button>
             </div>
-        </div>
+            <div id="C_button">
+                <button type="button" id="btn_scissors" class="rps_btn">S</button>
+              </div>
+            <div id="select_button">
+              <div class="lower-btn-txt">SELECT</div>
+            </div>
+            <div id="start_button">
+                <button onClick="startGame()" type="button" id="start_btn"></button>
+              <div class="lower-btn-txt">START</div>
+            </div>
+          
+            <div id="1st_row" class="row">
+              <div class="sound-holes"></div>
+              <div class="sound-holes"></div>
+              <div class="sound-holes"></div>
+              <div class="sound-holes"></div>
+              <div class="sound-holes"></div>
+              <div class="sound-holes"></div>
+            </div>
+            <div id="2nd_row" class="row">
+              <div class="sound-holes"></div>
+              <div class="sound-holes"></div>
+              <div class="sound-holes"></div>
+              <div class="sound-holes"></div>
+            </div>
+            <div id="3nd_row" class="row">
+              <div class="sound-holes"></div>
+              <div class="sound-holes"></div>
+              <div class="sound-holes"></div>
+              <div class="sound-holes"></div>
+              <div class="sound-holes"></div>
+              <div class="sound-holes"></div>
+            </div>
+          
+            <div id="4th_row" class="row">
+              <div class="sound-holes"></div>
+              <div class="sound-holes"></div>
+              <div class="sound-holes"></div>
+              <div class="sound-holes"></div>
+            </div>
+          
+            <div id="on_offdiv">
+              <input type="checkbox" onclick="powerOn()" id="buttonon_off">
+              <label type="check" for="buttonon_off" id="on_off"></label>
+              <div id="power_light"></div>
+              <div id="screen_on"></div>
 
-        <div id="info_box" class="hidden"></div>
+              <div id="warning_container" class="hidden">
+                  <div id="warning_box">
+                      <div id="warning_content">
+                          <p class="letters_warning">
+                              <span></span>
+                          </p>
+                          <div id="warning_close">
+                              <p></p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div id="result" class="letters_warning"></div>
+
+              <div id="start_game_txt" class="letters">START</div>
+              <div id="start_game_game_txt" class="letters">GAME</div>
+              <span id="num_of_games" class="letters_med">
+                GAME: <span id="gameNum">0</span>
+              </span>
+              <div id="info_box" class="letters_results">
+              </div>
+              <div id="player_score_txt" class="letters_small">Player Score: <span id="pScore" class="pScoreTxt hidden"></span></div>
+              <div id="computer_score_txt" class="letters_small">Computer Score: <span id="cScore" class="pScoreTxt hidden"></span></div>
+              
+              
+            </div>
+              
+              <div id="hey"> <</div>
+                
+          </div>
 
         <script type="text/javascript" src="js/script.js"></script>
-
     </body>
 </html>

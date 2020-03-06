@@ -1,272 +1,558 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,900|Press+Start+2P&display=swap');
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-header {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-}
+body {
+    padding-top: 50px;
+    background-color: #D6BF5C;
+  }
 
 h1 {
     margin: 20px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Arial', sans-serif;
     font-weight: 900;
-    font-size: 65px;
-    border-bottom: 10px dotted #b8f3ff;
+    font-size: 50px;
+    text-transform: uppercase;
 }
 
-.header_color_1 {
-    color: #c2c2c2;
-}
-
-.header_color_2 {
-    color: #ff9ab8;
-}
-
-.header_color_3 {
-    color: #bf8eff;
-}
-
-header p {
-    font-family: 'Montserrat', sans-serif;
-    color: #444;
-    margin: 5px;
-    font-size: 25px;
-}
-
-input[type='button'] {
-    padding: 20px 50px;
-    border: none;
-    margin: 10px auto;
-    border-radius: 30px;
-    font-size: 25px;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #beffb8;
-    font-weight: 900;
-    width: 80%;
-}
-
-input[type='button']:hover {
-    background-color: #89b885;
-    cursor: pointer;
-}
-
-.score_container {
-    width: 100%;
-    margin: 10px auto;
-    font-family: 'Press Start 2P', sans-serif;
-    text-align: center;
-}
-
-.score_board {
-    width: 30%;
-    display: inline-block;
-    background: #555;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    color: #fff;
-}
-
-.score_board p {
-    font-size: 12px;
-    position: relative;
-    left: -10px;
-}
-
-.num_of_games {
-    color: #7dadb7;
-    padding: 5px;
+h2 {
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
     font-size: 20px;
-    letter-spacing: .5em;
+    text-transform: uppercase;
 }
 
-.choice_container {
-    width: 100%;
-    height: auto;
-}
-
-.choice {
-    width: 90%;
-    float: left;
+[id="explination_text"] {
+    display: block;
     text-align: center;
-    font-size: 35px;
-    background: #b8f3ff;
-    margin: 5px 25px;
-    padding: 30px;
-    color: #333;
-    border-radius: 10px;
-    min-width: 250px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
+    margin-bottom: 50px;
 }
-
-.choice:hover {
-    background-color: #8dbbc4;
-    cursor: pointer;
-
-    -webkit-box-shadow: 7px 7px 33px -8px rgba(0,0,0,0.75);
-    -moz-box-shadow: 7px 7px 33px -8px rgba(0,0,0,0.75);
-    box-shadow: 7px 7px 33px -8px rgba(0, 0, 0, 0.75);
-}
-
-.choice img {
-   width : 100px;
-}
-
-#info_box {
-    margin: 0 auto;
-    text-align: center;
-    background: #beffb8;
-    width: 20%;
-    padding: 10px;
-    color: #555;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
-    clear: both;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    opacity: .9;
-    font-weight: 900;
-}
-
-#result {
-    width: 100%;
-    margin: 0 auto;
-    clear: both;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    margin-top: 10px;
-}
-
-#result p {
-    font-family: 'Montserrat', sans-serif;
-    color: #7dadb7;
-    font-weight: 900;
-    font-size: 20px;
-    line-height: 2em;
-}
-
-.hidden {
-    display: none;
-}
-
-#warning-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.75);
-    font-size: 20px;
-    z-index: 2;
-}
-
-#warning-box {
-    background-color: #fff;
-    width: 70%;
-    position: fixed;
-    top: 30%;
-    left: 50px;
-    font-family: 'Montserrat', sans-serif;
-    padding: 30px;
-    border-radius: 20px;
-}
-
-.warning-text {
-    position: relative;
-    left: -20px;
-}
-
-#warning-content {
-    position: relative;
-}
-
-#warning-box p {
-    text-align: center;
-    font-weight: 900;
-}
-
-#warning-close {
-    float: right;
+  
+  [id="colored_component"] {
     position: absolute;
-    top: 0px;
-    right: -10px;
-    border: 1px solid #000;
-    padding: 5px;
-}
-
-#warning-close:hover {
-    background: #e3e3e3;
-    cursor: pointer;
-}
-
-#warning-close:active {
-    background: #444;
-    cursor: pointer;
-}
-
-@media only screen and (min-width: 850px) {
-    header {
-      width: 50%;
-    }
-
-    h1 {
-        font-size: 80px;
-    }
-
-    header p {
-        font-size: 18px;
-    }
-
-    input[type='button'] {
-        width: inherit;
-        font-size: 20px;
-    }
-
-    .score-container {
-        width: 50%;
-        margin: 20px auto;
-    }
-
-    .choice {
-      margin: 20px;
-      width: 25%;
-    }
-
-    .score-board {
-      width: 40%;
-      font-size: 25px;
-    }
-
-    .score-board p {
-        left: 0;
-        font-size: 20px;
-    }
-
-  #info-box { 
-      top: 0;
-      bottom: auto;
-      opacity: 1;
-      width: 100%;
-      height: 50px;
-      font-size: 25px;
-  }
-
-  #result p {
-      font-size: 30px;
-      line-height: 2.5em;
-  }     
-  
-  #warning-box {
-      left: 200px;
+    width: 200px;
+    height: 360px;
+    margin-top: 150px;
+    background-color: #FAF9F4;
+    border-radius: 4px 4px 30px 4px;
+    box-shadow: 5px 5px 3px #BFAB52;
+    left: calc(50% - 100px);
+    transform: scale(2);
   }
   
+  [id="screen_border"] {
+    position: relative;
+    background-color: #4A4A4A;
+    margin-top: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 180px;
+    height: 160px;
+    border-radius: 4px 4px 20px 4px;
+  }
+  
+  [id="screen"] {
+    position: relative;
+    width: 127px;
+    height: 126px;
+    top: 16px;
+    margin: auto;
+    background-color: #B5B28F;
+  }
+  
+  [id="gameboy_color"] {
+    position: relative;
+    color: white;
+    font-size: 9px;
+    top: 19px;
+    left: 46.7px;
+  }
+  
+  [id="power_light"] {
+    position: relative;
+    width: 5px;
+    height: 5px;
+    top: -287px;
+    left: 15px;
+    background-color: black;
+    border-radius: 50%;
+    transition: background-color 1s ease 0.5s;
+    z-index: 100;
+  }
+  
+  [id="power_text"] {
+    position: relative;
+    font-family: helvetica;
+    font-size: 4px;
+    color: white;
+    top: -99px;
+    left: 6.6px;
+  }
+  
+  [class="power-moon"] {
+    position: relative;
+    width: 5px;
+    height: 5px;
+    display: inline-block;
+    margin-right: -5px;
+    border-radius: 50%;
+    box-shadow: 2px -0.2px 0 white;
+    top: -119.7px;
+    left: 8.3px;
+  }
+  
+  #cross_button #vertical {
+    position: relative;
+    width: 20px;
+    height: 55px;
+    top: 30px;
+    left: 30px;
+    background-color: #4A4A4A;
+    border-radius: 3px;
+  }
+  
+  [id="cross_button"] [id="horizontal"] {
+    position: relative;
+    width: 55px;
+    height: 20px;
+    top: -7px;
+    left: 12px;
+    background-color: #4A4A4A;
+    border-radius: 3px;
+  }
+  
+  [id="up"] {
+    position: relative;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid #424242;
+    top: 3.5px;
+    left: 4.5px;
+  }
+  
+  [id="down"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 40px;
+    left: 4.5px;
+    border-top: 10px solid #424242;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+  }
+  
+  [id="left"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 5px;
+    left: 3.5px;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 10px solid #424242;
+  }
+  
+  [id="right"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 10px solid #424242;
+    bottom: 5px;
+    right: 3.5px;
+  }
+  
+  [id="middle_round"] {
+    position: relative;
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    background-color: #424242;
+    top: 2.5px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  [id="A_button"] {
+    position: relative;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-color: none;
+    top: -33px;
+    left: 155px;
+  }
+
+   [class="rps_btn"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: #FC5358;
+    top: 0;
+    left: -1px;
+    border: none;
+    outline: none;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+    padding: 0;
+  }
+  
+  button:hover {
+      cursor: pointer;
+  }
+
+  button:focus {
+      background-color: rgb(240, 71, 76);
+  }
+ 
+  
+  [id="B_button"] {
+    position: relative;
+    height: 24px;
+    width: 24px;
+    border-radius: 100%;
+    background-color: none;
+    top: -45px;
+    left: 125px;
+  }
+
+  [id="C_button"] {
+    position: relative;
+    height: 24px;
+    width: 24px;
+    border-radius: 100%;
+    background-color: none;
+    top: -43px;
+    left: 150px;
+  }
+  
+  [class="btn-txt"] {
+    position: absolute;
+    height: 27px;
+    width: 27px;
+    font-family: helvetica;
+    font-size: 11px;
+    text-align: center;
+    color: #757575;
+    top: 0;
+  }
+  
+  [id="select_button"] {
+    position: relative;
+    width: 27px;
+    height: 6px;
+    background-color: #424242;
+    border-radius: 5px;
+    left: 70px;
+  }
+  
+  [id="start_button"] {
+    position: relative;
+    width: 27px;
+    height: 6px;
+    background-color: #424242;
+    border-radius: 5px;
+    top: -6px;
+    left: 110px;
+  }
+
+  [id="start_btn"] {
+    position: relative;
+    width: 27px;
+    height: 7px;
+    background-color: #424242;
+    border-radius: 5px;
+    top: -8px;
+    left: 0px;
+    border: none;
+    border: none;
+    outline: none;
+    visibility: hidden;
 }
+
+
+  [class="lower-btn-txt"] {
+    position: absolute;
+    height: 27px;
+    width: 27px;
+    font-family: helvetica;
+    font-size: 7.7px;
+    text-align: center;
+    color: #424242;
+    top: 14.6px;
+  }
+  
+  [class="sound-holes"] {
+    height: 4px;
+    width: 4px;
+    border-radius: 50%;
+    background-color: #424242;
+    display: inline-block;
+  }
+  
+  [class="row"] {
+    position: absolute;
+    bottom: 27px;
+    right: 20px;
+    transform: rotate(-45deg);
+  }
+  
+  [id="1st_row"] {
+    right: 6px;
+    bottom: 20px;
+    margin-right:1px;
+  }
+  
+  [id="3nd_row"] {
+    right: 0px;
+    bottom: 15px;
+    margin-right:2px;
+  }
+  
+  [id="4th_row"] {
+    right: 0px;
+    bottom: 10px;
+    margin-right:4px;
+  }
+  
+[id="on_offdiv"] {
+    position: absolute;
+    width: 3px;
+    height: 20px;
+  }
+  
+  [id="on_off"] {
+    position: absolute;
+    width: 3px;
+    height: 25px;
+    background-color: #424242;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    bottom:260px;
+    left: 200px;
+    box-shadow: 2px 3px 3px #BFAB52;
+    transition: bottom 0.5s ease 0s;
+    display: block;
+    visibility:visible;
+    cursor: pointer;
+    border: none;
+  }
+  
+  [id="screen_on"] {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    bottom:200px;
+    left: 40px;
+    background-color: #EAEAFF;
+    visibility: hidden;
+  }
+  
+  [id="buttonon_off"] {
+    display: none;
+  }
+  
+  [id="nintendo_sign"] {
+    position: relative;
+    bottom: 194px;
+    left: 73px;
+    width: 50px;
+    height: 10px;
+    font-family: arial black;
+    font-size: 10px;
+    visibility: hidden;
+  }
+  
+
+  /*NINTENDO Letters animation on screen*/
+  
+  
+  [class="letters"] {
+    position: absolute;
+    width: 120px;
+    height: 20px;
+    text-align: center;
+    bottom: 245px;
+    left: 39px;
+    font-family:ARIAL BLACK;
+    font-size:19px;
+    display:inline-block;
+    margin-right:-3.5px;
+  }
+
+  [class="letters_med"] {
+    position: absolute;
+    width: 120px;
+    height: 20px;
+    text-align: center;
+    bottom: 245px;
+    left: 20px;
+    font-family:ARIAL BLACK;
+    font-size: 10px;
+    display:inline-block;
+    margin-right:-3.5px;
+  }
+
+  [class="letters_small"] {
+    position: absolute;
+    width: 120px;
+    height: 20px;
+    text-align: left;
+    bottom: 245px;
+    left: 20px;
+    font-family:ARIAL BLACK;
+    font-size: 7px;
+    display:inline-block;
+    margin-right:-3.5px;
+  }
+
+  [class="letters_results"] {
+    position: absolute;
+    width: 120px;
+    height: 20px;
+    text-align: center;
+    bottom: 196px;
+    left: 40px;
+    font-family:ARIAL BLACK;
+    font-size: 8px;
+    display:inline-block;
+    margin-right:-3.5px;
+    text-transform: uppercase;
+  }
+
+  [class="letters_warning"] {
+    position: absolute;
+    width: 120px;
+    height: 20px;
+    text-align: center;
+    bottom: 245px;
+    left: 20px;
+    font-family:ARIAL BLACK;
+    font-size: 10px;
+    display:inline-block;
+    margin-right:-3.5px;
+    text-transform: uppercase;
+    padding: 0;
+  }
+
+  [id="start_game_txt"] {
+    display: inline-block;
+    left: 42px;
+    bottom: 300px;
+    visibility:hidden;
+
+  }
+  
+  [id="buttonon_off"]:checked ~ #start_game_txt {
+    visibility: visible;
+    transition:all 0s linear 2.5s;
+  }
+
+  [id="start_game_game_txt"] {
+    display: inline-block;
+    left: 40px;
+    bottom: 285px;
+    visibility:hidden;
+  }
+  
+  [id="buttonon_off"]:checked ~ #start_game_game_txt {
+    visibility: visible;
+    transition:all 0s linear 2.6s;
+  }
+
+  [id="player_score_txt"] {
+    display: inline-block;
+    left: 45px;
+    bottom: 220px;
+    visibility:hidden;
+  }
+
+  [id="buttonon_off"]:checked ~ #player_score_txt {
+    visibility: visible;
+    transition:all 0s linear 2.85s;
+  }
+
+  [id="computer_score_txt"] {
+    display: inline-block;
+    left: 45px;
+    bottom: 212px;
+    visibility:hidden;
+  }
+
+  [id="buttonon_off"]:checked ~ #computer_score_txt {
+    visibility: visible;
+    transition:all 0s linear 2.95s;
+}
+
+[id="num_of_games"] {
+    display: inline-block;
+    left: 42px;
+    bottom: 260px;
+    visibility:hidden;
+  }
+
+  [id="buttonon_off"]:checked ~ #num_of_games {
+    visibility: visible;
+    transition:all 0s linear 2.75s;
+}
+
+/* results styling */
+
+[id="result"] {
+    display: inline-block;
+    left: 40px;
+    bottom: 253px;
+    visibility:hidden;
+  }
+
+  [id="buttonon_off"]:checked ~ #result {
+    visibility: visible;
+    transition:all 0s linear 2.75s;
+}
+  
+  /*on/off button sliding animation*/
+  
+  [id="buttonon_off"]:checked ~ #on_off {
+    bottom:270px;
+  }
+  
+  /*Screen light animation */
+  
+  [id="buttonon_off"]:checked ~ #screen_on {
+    visibility: visible;
+    transition: all 1s ease 1s;
+  }
+  
+  /*Power light animation */
+  
+  [id="buttonon_off"]:checked ~ #power_light {
+    background-color: red;
+    transition: all 2.25s ease 1s;
+  }
+  
+  /*Nintendo logo screen animation*/
+  
+  [id="buttonon_off"]:checked ~ #nintendo_sign {
+    visibility: visible;
+    transition: all 0s linear 3s;
+  }
+  
+
+ [id="hey"] {
+    position:relative;
+    font-family:arial;
+    opacity:0.4;
+    bottom:260px;
+    left:220px;
+    animation:cursor 2s linear infinite;
+  }
+
+  @keyframes cursor {
+    0% {left:218px;}
+    50% {left:213px;}
+  };
